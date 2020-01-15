@@ -1,5 +1,0 @@
-C:\Users\ariel.hernan.napoli\source\repos\WcfServices\WcfServices\bin\WcfServices.dll.config
-C:\Users\ariel.hernan.napoli\source\repos\WcfServices\WcfServices\bin\WcfServices.dll
-C:\Users\ariel.hernan.napoli\source\repos\WcfServices\WcfServices\bin\WcfServices.pdb
-C:\Users\ariel.hernan.napoli\source\repos\WcfServices\WcfServices\obj\Debug\WcfServices.dll
-C:\Users\ariel.hernan.napoli\source\repos\WcfServices\WcfServices\obj\Debug\WcfServices.pdb
