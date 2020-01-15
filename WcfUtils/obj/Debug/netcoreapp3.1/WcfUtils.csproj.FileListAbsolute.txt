@@ -1,0 +1,14 @@
+C:\Users\ariel.hernan.napoli\source\repos\WcfServices\WcfUtils\bin\Debug\netcoreapp3.1\WcfUtils.exe
+C:\Users\ariel.hernan.napoli\source\repos\WcfServices\WcfUtils\bin\Debug\netcoreapp3.1\WcfUtils.deps.json
+C:\Users\ariel.hernan.napoli\source\repos\WcfServices\WcfUtils\bin\Debug\netcoreapp3.1\WcfUtils.runtimeconfig.json
+C:\Users\ariel.hernan.napoli\source\repos\WcfServices\WcfUtils\bin\Debug\netcoreapp3.1\WcfUtils.runtimeconfig.dev.json
+C:\Users\ariel.hernan.napoli\source\repos\WcfServices\WcfUtils\bin\Debug\netcoreapp3.1\WcfUtils.dll
+C:\Users\ariel.hernan.napoli\source\repos\WcfServices\WcfUtils\bin\Debug\netcoreapp3.1\WcfUtils.pdb
+C:\Users\ariel.hernan.napoli\source\repos\WcfServices\WcfUtils\obj\Debug\netcoreapp3.1\WcfUtils.AssemblyInfoInputs.cache
+C:\Users\ariel.hernan.napoli\source\repos\WcfServices\WcfUtils\obj\Debug\netcoreapp3.1\WcfUtils.AssemblyInfo.cs
+C:\Users\ariel.hernan.napoli\source\repos\WcfServices\WcfUtils\obj\Debug\netcoreapp3.1\WcfUtils.dll
+C:\Users\ariel.hernan.napoli\source\repos\WcfServices\WcfUtils\obj\Debug\netcoreapp3.1\WcfUtils.pdb
+C:\Users\ariel.hernan.napoli\source\repos\WcfServices\WcfUtils\bin\Debug\netcoreapp3.1\WcfCore.dll
+C:\Users\ariel.hernan.napoli\source\repos\WcfServices\WcfUtils\bin\Debug\netcoreapp3.1\WcfCore.pdb
+C:\Users\ariel.hernan.napoli\source\repos\WcfServices\WcfUtils\obj\Debug\netcoreapp3.1\WcfUtils.csprojAssemblyReference.cache
+C:\Users\ariel.hernan.napoli\source\repos\WcfServices\WcfUtils\obj\Debug\netcoreapp3.1\WcfUtils.csproj.CopyComplete

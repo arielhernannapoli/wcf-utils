@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "WcfUtils/1.0.0": {
+        "dependencies": {
+          "WcfCore": "1.0.0"
+        },
+        "runtime": {
+          "WcfUtils.dll": {}
+        }
+      },
+      "WcfCore/1.0.0": {
+        "runtime": {
+          "WcfCore.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "WcfUtils/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "WcfCore/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
