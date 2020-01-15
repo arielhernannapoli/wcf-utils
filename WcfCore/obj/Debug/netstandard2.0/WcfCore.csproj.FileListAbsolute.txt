@@ -1,8 +1,0 @@
-C:\Users\ariel.hernan.napoli\source\repos\WcfServices\WcfCore\bin\Debug\netstandard2.0\WcfCore.deps.json
-C:\Users\ariel.hernan.napoli\source\repos\WcfServices\WcfCore\bin\Debug\netstandard2.0\WcfCore.dll
-C:\Users\ariel.hernan.napoli\source\repos\WcfServices\WcfCore\bin\Debug\netstandard2.0\WcfCore.pdb
-C:\Users\ariel.hernan.napoli\source\repos\WcfServices\WcfCore\obj\Debug\netstandard2.0\WcfCore.csprojAssemblyReference.cache
-C:\Users\ariel.hernan.napoli\source\repos\WcfServices\WcfCore\obj\Debug\netstandard2.0\WcfCore.AssemblyInfoInputs.cache
-C:\Users\ariel.hernan.napoli\source\repos\WcfServices\WcfCore\obj\Debug\netstandard2.0\WcfCore.AssemblyInfo.cs
-C:\Users\ariel.hernan.napoli\source\repos\WcfServices\WcfCore\obj\Debug\netstandard2.0\WcfCore.dll
-C:\Users\ariel.hernan.napoli\source\repos\WcfServices\WcfCore\obj\Debug\netstandard2.0\WcfCore.pdb
