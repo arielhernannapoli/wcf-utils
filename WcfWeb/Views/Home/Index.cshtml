@@ -1,0 +1,22 @@
+﻿@model  WcfWeb.Models.IndexModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@using (var form = Html.BeginForm("ConsultarWS", "Home"))
+{
+    <div class="text-center">
+        @Html.TextBoxFor(m => m.ServiceUri, new { @class = "form-control" })        
+    </div>
+    <div>
+        @Html.DropDownListFor(m => m.ServiceMethod, new SelectList(Model.ServiceMethods), "", new { @class = "form-control" })
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary">ConsultarWS</button>
+        <button type="submit" class="btn btn-success">InvocarWS</button>
+    </div>
+    <div>
+        @Html.TextArea("SoapRequest", Model.SoapRequest, new { cols = "100", rows = "30", @disabled = "disabled" })
+        @Html.TextArea("SoapResponse", Model.SoapResponse, new { cols = "100", rows = "30", @disabled = "disabled" })
+    </div>
+}

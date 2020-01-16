@@ -48,8 +48,11 @@ namespace WcfWinform
         private async void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             ClearForm();
-            var soapRequest = await SoapHelper.BuildSoapRequest(textBox1.Text, comboBox1.SelectedItem.ToString());
-            richTextBox1.Text = XmlFormatParserHelper.GetFormattedXml(soapRequest);
+            if (comboBox1.SelectedItem != null)
+            {
+                var soapRequest = await SoapHelper.BuildSoapRequest(textBox1.Text, comboBox1.SelectedItem.ToString());
+                richTextBox1.Text = XmlFormatParserHelper.GetFormattedXml(soapRequest);
+            }
         }
 
         private void ClearForm()

@@ -14,25 +14,28 @@ namespace WcfCore.Models
         public string Namespace { get; private set; }
         public List<SchemaElement> SchemaElements { get; private set; } = new List<SchemaElement>();
 
-        internal Schema(string location, string ns)
+        internal Schema(string location, string ns, List<XmlNode> imports)
         {
             this.Location = location;
             this.Namespace = ns;
 
-            var httpClient = new HttpClient();
-            var httpResponse = httpClient.GetAsync(this.Location).Result;
-            var httpContent = httpResponse.Content.ReadAsStringAsync().Result;
+            if (!String.IsNullOrEmpty(this.Location))
+            {
+                var httpClient = new HttpClient();
+                var httpResponse = httpClient.GetAsync(this.Location).Result;
+                var httpContent = httpResponse.Content.ReadAsStringAsync().Result;
 
-            var schemaDocument = new XmlDocument();
-            schemaDocument.LoadXml(httpContent);
-            schemaDocument.DocumentElement.ChildNodes
-                                          .GetNodes()
-                                          .Where(n => n.Name.Contains("element"))
-                                          .ToList()
-                                          .ForEach(n =>
-                                          {
-                                              SchemaElements.Add(new SchemaElement(n));
-                                          });
+                var schemaDocument = new XmlDocument();
+                schemaDocument.LoadXml(httpContent);
+                schemaDocument.DocumentElement.ChildNodes
+                                              .GetNodes()
+                                              .Where(n => n.Name.Contains("element"))
+                                              .ToList()
+                                              .ForEach(n =>
+                                              {
+                                                  SchemaElements.Add(new SchemaElement(n, schemaDocument.DocumentElement, imports));
+                                              });
+            }
 
         }
 
@@ -45,8 +48,9 @@ namespace WcfCore.Models
                            .ToList()
                            .ForEach(n =>
                            {
-                                SchemaElements.Add(new SchemaElement(n));
+                                SchemaElements.Add(new SchemaElement(n, node));
                            });
         }
+
     }
 }

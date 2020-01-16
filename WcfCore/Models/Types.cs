@@ -13,10 +13,15 @@ namespace WcfCore.Models
 
         internal Types(XmlNode node)
         {
+            var imports = node.ChildNodes[0].ChildNodes.GetNodes().Where(ns => ns.Name.Contains("import")).ToList();
+
             node.ChildNodes[0].ChildNodes.GetNodes().Where(n => n.Name.Contains("import")).ToList().ForEach(n =>
             {
-                Schemas.Add(new Schema(n.Attributes.GetNamedItem("schemaLocation").Value,
-                                       n.Attributes.GetNamedItem("namespace").Value));
+                Schemas.Add(new Schema(n.Attributes.GetNodes().FirstOrDefault(nn => nn.Name == "schemaLocation") != null ?
+                                           n.Attributes.GetNodes().FirstOrDefault(nn => nn.Name == "schemaLocation").Value : string.Empty,
+                                       n.Attributes.GetNodes().FirstOrDefault(nn => nn.Name == "namespace") != null ?
+                                            n.Attributes.GetNodes().FirstOrDefault(nn => nn.Name == "namespace").Value : string.Empty,
+                                       imports));
             });
 
             Schemas.Add(new Schema(node.ChildNodes[0]));

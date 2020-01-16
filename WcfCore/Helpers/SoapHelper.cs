@@ -34,7 +34,7 @@ namespace WcfCore.Helpers
             parametersData.SchemaElements.ForEach(e =>
             {
                 var soapParameter = soapRequest.CreateElement(e.Name, wsdl.Definitions.Attributes.First(a => a.Name == messageData.Parameter.Split(':')[0]).Value);
-                soapParameter.InnerText = "5";
+                soapParameter = AddChilds(wsdl, e, soapParameter, soapRequest, messageData);
                 soapOperation.AppendChild(soapParameter);
             });
             soapBody.AppendChild(soapOperation);
@@ -72,6 +72,21 @@ namespace WcfCore.Helpers
         {
             return nodeValue.Contains(":") ? nodeValue.Split(':')[1] : nodeValue;
 
+        }
+
+        private static XmlElement AddChilds(Wsdl wsdl, SchemaElement e, XmlElement soapParameter, XmlDocument soapRequest, Message messageData)
+        {
+            e.SchemaElements.ForEach(ee =>
+            {
+                var soapParameterChild = soapRequest.CreateElement(ee.Name, ee.Namespace == string.Empty ? wsdl.Definitions.Attributes.First(a => a.Name == messageData.Parameter.Split(':')[0]).Value : ee.Namespace);
+                soapParameterChild = AddChilds(wsdl, ee, soapParameterChild, soapRequest, messageData);
+                if (ee.SchemaElements.Count == 0)
+                    soapParameterChild.InnerText = "?";
+                soapParameter.AppendChild(soapParameterChild);
+            });
+            if (e.SchemaElements.Count == 0)
+                soapParameter.InnerText = "?";
+            return soapParameter;
         }
     }
 }

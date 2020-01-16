@@ -9,6 +9,7 @@ using System.Xml.Linq;
 using System.Text.RegularExpressions;
 using System.IO;
 using System.Xml;
+using System.Xml.Serialization;
 
 namespace WcfCore.Soap
 {
@@ -83,7 +84,12 @@ namespace WcfCore.Soap
 
 			if (error != null)
 			{
-				throw new HttpRequestException(error.Message);
+				string errorString = string.Empty;
+				XmlSerializer ser = new XmlSerializer(typeof(SoapError));
+				StringWriter writer = new StringWriter();
+				ser.Serialize(writer, error);
+				writer.Close();
+				return writer.ToString();
 			}
 
 			return xmlResult;

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace WcfCore.Soap
 {
-    internal class SoapError
+    public class SoapError
     {
         public string Code { get; set; }
 
