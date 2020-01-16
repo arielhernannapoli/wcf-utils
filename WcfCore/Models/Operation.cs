@@ -22,8 +22,14 @@ namespace WcfCore.Models
                                             .FirstOrDefault(n => n.Name.Contains("input"))
                                             .Attributes
                                             .GetNodes()
+                                            .FirstOrDefault(n => n.Name.Contains("Action")) != null ?
+                                            node.ChildNodes
+                                            .GetNodes()
+                                            .FirstOrDefault(n => n.Name.Contains("input"))
+                                            .Attributes
+                                            .GetNodes()
                                             .FirstOrDefault(n => n.Name.Contains("Action"))
-                                            .Value,
+                                            .Value : string.Empty,
                                          node.ChildNodes
                                             .GetNodes()
                                             .FirstOrDefault(n => n.Name.Contains("input"))
@@ -36,8 +42,14 @@ namespace WcfCore.Models
                                 .FirstOrDefault(n => n.Name.Contains("output"))
                                 .Attributes
                                 .GetNodes()
+                                .FirstOrDefault(n => n.Name.Contains("Action")) != null ?
+                                node.ChildNodes
+                                .GetNodes()
+                                .FirstOrDefault(n => n.Name.Contains("output"))
+                                .Attributes
+                                .GetNodes()
                                 .FirstOrDefault(n => n.Name.Contains("Action"))
-                                .Value,
+                                .Value : string.Empty,
                              node.ChildNodes
                                 .GetNodes()
                                 .FirstOrDefault(n => n.Name.Contains("output"))
