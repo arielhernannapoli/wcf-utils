@@ -1,22 +1,66 @@
-﻿@model  WcfWeb.Models.IndexModel
+﻿@model WcfWeb.Models.IndexModel
 @{
     ViewData["Title"] = "Home Page";
 }
 
-@using (var form = Html.BeginForm("ConsultarWS", "Home"))
-{
-    <div class="text-center">
-        @Html.TextBoxFor(m => m.ServiceUri, new { @class = "form-control" })        
-    </div>
-    <div>
-        @Html.DropDownListFor(m => m.ServiceMethod, new SelectList(Model.ServiceMethods), "", new { @class = "form-control" })
-    </div>
-    <div>
-        <button type="submit" class="btn btn-primary">ConsultarWS</button>
-        <button type="submit" class="btn btn-success">InvocarWS</button>
-    </div>
-    <div>
-        @Html.TextArea("SoapRequest", Model.SoapRequest, new { cols = "100", rows = "30", @disabled = "disabled" })
-        @Html.TextArea("SoapResponse", Model.SoapResponse, new { cols = "100", rows = "30", @disabled = "disabled" })
-    </div>
-}
+<div id="contenido">
+    @using (var form = Html.BeginForm("ConsultarWS", "Home"))
+    {
+        <div class="spinner-border spinner-loading" role="status" style="display:none;">
+            <span class="sr-only">Loading...</span>
+        </div>
+
+        <div class="text-center">
+            @Html.TextBoxFor(m => m.ServiceUri, new { @class = "form-control", @id = "wsServiceURI" })
+        </div>
+        <div>
+            @Html.DropDownListFor(m => m.ServiceMethod, new SelectList(Model.ServiceMethods), "", new { @class = "form-control", @id = "wsServiceMethods" })
+        </div>
+        <div>
+            <button type="button" class="btn btn-primary" onclick="findMethodsWS()">ConsultarWS</button>
+            <button type="button" class="btn btn-primary" onclick="getMethodRequest()">PeticionWS</button>
+            <button type="button" class="btn btn-success" onclick="invokeMethodWS()">InvocarWS</button>
+        </div>
+        <div>
+            @Html.TextArea("SoapRequest", Model.SoapRequest, new { cols = "100", rows = "28", @id = "wsServiceRequest" })
+            @Html.TextArea("SoapResponse", Model.SoapResponse, new { cols = "100", rows = "28", @disabled = "disabled", @id = "wsServiceResponse" })
+        </div>
+    }
+</div>
+
+<script>
+    function findMethodsWS() {
+        $.post('@Url.Action("GetMethodsWS","Home")',
+            {
+                uri: $("#wsServiceURI").val()
+            })
+            .then(d =>
+                $(d).each((i, e) => $("#wsServiceMethods").append(new Option(e,e))
+                ));
+    }
+
+    function getMethodRequest() {
+        $.post('@Url.Action("GetMethodRequest","Home")',
+            {
+                uri: $("#wsServiceURI").val(),
+                method: $("#wsServiceMethods").val(),
+            })
+            .then(d => {
+                $("#wsServiceRequest").val(d);
+                $("#wsServiceResponse").val('')
+            }
+                );
+    }
+
+    function invokeMethodWS() {
+        $.post('@Url.Action("InvokeMethodWS","Home")',
+            {
+                uri: $("#wsServiceURI").val(),
+                method: $("#wsServiceMethods").val(),
+                request: $("#wsServiceRequest").val()
+            })
+            .then(d =>
+                $("#wsServiceResponse").val(d)
+                );
+    }
+</script>

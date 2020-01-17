@@ -1,6 +1,18 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
+#contenido div {
+    margin-bottom: 20px;
+}
+
+spinner-loading {
+    display: inline-block;
+    z-index: 15000;
+    left: 50px;
+    top: 100px;
+    position: relative;
+}
+
 a.navbar-brand {
   white-space: normal;
   text-align: center;
